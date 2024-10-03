@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact - Rahul Rajput | Rahul Rajput{% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl">Contact 📧</h1>
+<p class="text-gray-300 mt-8">Feel free to reach out to me via any of the following platforms:</p>
+
+{% for contact in contacts %}
+<div class="flex items-center space-x-2 mt-4">
+    <!-- SVG Icon for Email -->
+    <img src="{{contact.image.url}}" alt="" class="h-6 w-6">
+    <!-- Text and Email Link -->
+    <span class="text-gray-300">{{contact.name}}:</span>
+    <a href="{{contact.link}}" class="text-gray-300 hover:text-white underline">{{contact.link}}</a>
+</div>
+{% endfor %}
+
+<hr class="border-t-1 border-white-300 my-4">
+
+{% endblock %}

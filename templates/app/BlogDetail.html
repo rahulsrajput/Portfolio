@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{blog.blogTitle}} | Rahul Rajput {% endblock %}
+
+
+{% block content %}
+<h1 class="text-3xl">{{blog.blogTitle}}</h1>
+<p class="text-gray-300 text-sm mt-2">{{blog.datePublished|date}} ({{blog.datePublished|timesince}})</p>
+<span class="text-gray-300 text-sm mt-2">Category: <a href="{% url 'blog' %}?category={{blog.category}}" class="hover:text-white underline">{{blog.category}}</a></span>
+<img src="{% if blog.image %} {{blog.image.url}} {% endif %}" alt="{{blog.blogTitle}}-image" class="mt-8">
+
+<div class="tiny-content">
+    <article class="text-gray-300">{{blog.content|safe}}</article>
+</div>
+{% endblock %}

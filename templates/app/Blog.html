@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blog - Rahul Rajput | Rahul Rajput{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl">Writings 🧑🏻‍💻</h1>
+
+
+{% for blog in blogs %}
+<div class="flex justify-between items-start mt-5">
+    <div class="flex items-start">
+       <span class="mr-4">→</span>
+        <!-- Blog Title and Published Date -->
+        <div>
+            <a href="{% url 'blogDetail' blog.slug %}" class="">{{blog.blogTitle}}</a>
+            <p class="text-sm text-gray-300 flex flex-wrap items-center">
+                <span class="mr-2">{{blog.datePublished|date}} ({{blog.datePublished|timesince}})</span>
+                <span>• {{blog.calculate_reading_time}} min read</span>
+            </p>
+        </div> 
+    </div>
+</div>
+{% endfor %}
+
+
+<div class="flex justify-between mt-4">
+    <div>
+        {% if blogs.has_previous %}
+            <a href="?page={{ blogs.previous_page_number }}" class="text-gray-300 hover:text-white">Previous</a>
+        {% endif %}
+    </div>
+    <div>
+        {% if blogs.has_next %}
+            <a href="?page={{ blogs.next_page_number }}" class="text-gray-300 hover:text-white">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<hr class="border-t-1 border-white-300 my-4">
+<p class="text-gray-300">Categories: 
+    {% for category in categories %}
+        <a href="?category={{ category.name }}" class="underline hover:text-white">{{category|capfirst}}</a>
+    {% endfor %}
+</p>
+<p class="text-gray-300 mt-4">I try to write time to time about something.</p>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Projects - Rahul Rajput | Rahul Rajput{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl">My Projects 🚀</h1>
+
+
+{% for project in projects %}
+<div class="flex items-start space-x-4 mt-6">
+    <!-- Icon -->
+    <img src="{{project.image.url}}" alt="" class="h-8 w-8">
+
+    <!-- Project Details -->
+    <div>
+        <!-- Project Title -->
+        <a href="{{project.link}}" class="underline">{{project.projectName}}</a>
+
+        <!-- Project Description -->
+        <p class="text-gray-400 mt-1">{{project.description}}</p>
+
+        <!-- Technologies Used -->
+        <p class="text-gray-300 mt-2">
+            <span class="text-white">Technologies:</span> {{project.technologies}}
+        </p>
+    </div>
+</div>
+{% endfor %}
+
+
+<hr class="border-t-1 border-white-300 my-4">
+{% endblock %}
