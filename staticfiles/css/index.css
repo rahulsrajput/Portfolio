@@ -1,0 +1,45 @@
+body{
+    font-family: "Inconsolata" !important;
+    font-optical-sizing: auto;
+    color: white !important;
+    font-weight: 550 !important;   
+}
+
+article{
+    font-size: large;
+    margin-top: 30px;
+    word-spacing: 5px;
+    margin-bottom: 200px;
+}
+
+.container{
+    margin-bottom: 100px;
+}
+
+.tiny-content p{
+    color: #D1D5DB !important;  /* Only apply to <p> tags within the tiny-content */
+}
+.tiny-content h1,
+.tiny-content h2,
+.tiny-content h3,
+.tiny-content h4,
+.tiny-content h5,
+.tiny-content h6 {
+    font-size: x-large;
+    color: white;  /* Set headings to white */
+}
+.tiny-content a {
+    color: white;  /* Set links to white */
+    text-decoration: underline;  /* Optional: underline links */
+}
+.tiny-content strong,
+.tiny-content b { 
+    color: white;  /* Set headings and bold text to white */
+}
+
+
+.tiny-content ul{
+    list-style-type: disc; /* Change to disc, circle, square, etc. */
+    margin-left: 20px; /* Add some margin for indentation */
+    color: #D1D5DB !important;  /* Only apply to <p> tags within the tiny-content */
+}
